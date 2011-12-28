@@ -5,9 +5,8 @@ A reporting frontend for [xref](http://www.erlang.org/doc/apps/tools/xref_chapte
 
 ## Building
 
-Vesalius currently uses [rebar](http://github.com/basho/rebar).  You can use your own, or use the `rebar` script that is included with `vesalius`.
-
-    rebar compile escriptize
+Vesalius currently uses [rebar](http://github.com/basho/rebar) and make. Building is as easy as
+    make
 
 This will generate the `vesalius` escript in the root of the project.
 
