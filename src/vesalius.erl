@@ -15,6 +15,14 @@ main(Args0) ->
     ?CONSOLE("===== VESALIUS =====~n"),
 
     {Opts, Args} = vesalius_options:process_args(Args0),
+    case vesalius_options:get(help, Opts) of
+        undefined ->
+            perform_analysis(Opts, Args);
+        _ ->
+            vesalius_options:usage()
+    end.
+
+perform_analysis(Opts, Args) ->
     ?CONSOLE("Parsed Opts: ~p~n", [Opts]),
     ?CONSOLE("Parsed Args: ~p~n", [Args]),
 

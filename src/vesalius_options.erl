@@ -8,7 +8,8 @@
 -export([
          get/2,
          get/3,
-         process_args/1
+         process_args/1,
+         usage/0
         ]).
 
 -include("vesalius.hrl").
@@ -31,6 +32,11 @@ update(Key, Proplist, NewVal) ->
                    Proplist,
                    {Key, NewVal}).
 
+%% @doc Displays usage information
+usage() ->
+    ScriptName = filename:basename(escript:script_name()),
+    getopt:usage(?OPTIONS, ScriptName).
+
 
 %% This isn't a "real" key, but rather a synthetic one
 get(target_modules, Proplist) ->
@@ -49,6 +55,8 @@ split_to_atoms(ArgString) ->
     [ list_to_atom(S) || S <- split(ArgString) ].
 
 %-spec process_args( [ string() ]) -> [ tuple() ].
+process_args([]) ->
+    process_args(["--help"]);
 process_args(Args) ->
     %% TODO: Need some more robust validation here
     {Parsed, NonOptArgs} = case getopt:parse(?OPTIONS, Args) of
