@@ -1,0 +1,33 @@
+#+TITLE: Vesalius TODO List
+
+* Command Line Options Parsing
+  Suggested behaviors by [[http://github.com/kevsmith][kevsmith]]:
+
+  #+begin_example
+    %% Single module, empty code path
+    vesalius --module foo
+
+    %% Single module, manual code path
+    %% Tool automatically detects and adds any compiled code
+    %% in ebin dirs (deps/bar/ebin, for example)
+    vesalius --module foo --path deps/bar,deps/baz
+
+    %% Single module, automatic code path
+    vesalius --module foo --path deps/*
+
+    %% Whole app, empty code path
+    %% Assumes ebin subdir in cwd
+    vesalius --app foo
+
+    %% Whole app, use foo.app to find and include deps
+    %% libdir is checked first and then system lib to
+    %% locate deps
+    vesalius --app foo --libdir deps
+
+    %% Whole app, manual code path
+    %% foo.app isn't consulted for deps
+    vesalius --app foo --path deps/bar, deps/baz
+
+    %% Whole app, automatic code path
+    vesalius --app foo --path deps/*
+  #+end_example

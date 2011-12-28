@@ -1,0 +1,12 @@
+{application, vesalius,
+ [
+  {description, "Erlang code introspection tool"},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { vesalius_app, []}},
+  {env, []}
+ ]}.

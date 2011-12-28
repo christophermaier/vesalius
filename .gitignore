@@ -1,0 +1,5 @@
+deps
+ebin
+
+# Ignore the escript
+vesalius
